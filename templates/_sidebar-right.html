@@ -1,0 +1,12 @@
+{% if GITHUB_ACTIVITY_FEED %}
+<div class="row-fluid">
+	<div class="span12">
+		<h2>Github Activity</h2>
+		<ul> 
+		{% for entry in github_activity %}
+			<li><b>{{ entry[0] }}</b><br /> {{ entry[1] }}</li>
+		{% endfor %} 
+		</ul>
+	</div>
+</div>
+{% endif %}
