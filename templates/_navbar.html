@@ -1,0 +1,35 @@
+<div class="navbar ">
+	<div class="navbar-inner">
+	        <ul class="nav">
+			<li><a href="{{ SITEURL }}/index.html"><i class="icon-home"></i> Home</a></li>
+			{% if DISPLAY_PAGES_ON_MENU %}
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <b class="caret"></b></a>
+				<ul class="dropdown-menu" role="menu">
+				{% for page in PAGES %}
+					<li role="menuitem"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+				{% endfor %}
+				</ul>
+			</li>			
+			{% endif %}
+			{% if DISPLAY_CATEGORIES_ON_MENU %} 
+	                <li class="dropdown">
+			 	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-folder-open"></i> Categories <b class="caret"></b></a>
+  				<ul class="dropdown-menu" role="menu">
+				{% for cat, null in categories %}
+					<li role="menuitem"><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+				{% endfor %}
+				</ul>
+			</li>
+			{% endif %}
+			{% if NAVBAR_PAGES %}
+				{% for name, link, icon in NAVBAR_PAGES %}
+					<li><a href="{{ SITEURL }}/{{ link }}"><i class="{{ icon }}"></i> {{ name }}</a></li>
+				{% endfor %}
+			{% endif %}
+	        </ul>   
+		<ul class="nav pull-right">
+			<li><a href="{{ FEED_ALL_RSS }}"><i class="icon-rss"></i> RSS</a></li>
+		</ul>
+	</div>
+</div>
