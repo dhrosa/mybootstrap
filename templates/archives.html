@@ -3,7 +3,7 @@
 {% block content %}
 {% for year, date_year in dates|groupby( 'date.year' ) | reverse %}
 	<h2>{{ year }}</h2>
-	{% for month, articles in date_year|groupby( 'date.month' ) %}
+	{% for month, articles in date_year|groupby( 'date.month' ) | reverse %}
 		<h3>{{ articles[ 0 ].date.strftime( '%B' ) }}</h3>
 		<ul>
 		{% for article in articles %}
