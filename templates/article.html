@@ -6,10 +6,10 @@
  <div class="well well-small">{% include "metadata.html" %}</div> 
   <div>{{ article.content }}</div>
   {% if article.tags %}
-  	<p class="text-right">
+  	<ul class="inline-block text-right">
 		<i class="icon-tags"></i>
 			{% for tag in article.tags %}
-				<small><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></small>
+				<il><small><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></small></li>
 			{% endfor %}
   	</p>
   {% endif %}
