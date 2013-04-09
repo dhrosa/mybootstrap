@@ -1,4 +1,6 @@
-Posted <a class="more" href="{{ SITEURL }}/{{ article.url }}">{{ article.locale_date  }}</a>
+Posted <abbr class="published" title="{{ article.date.isoformat() }}">
+	<i class="icon-calendar"></i> {{ article.locale_date }}
+	</abbr>
 {% if article.author %} 
 	by <i class="icon-user"> <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></i>
 {% endif %}

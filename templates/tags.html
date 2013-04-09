@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}{{ SITENAME }} <small>[tags]</small>{% endblock %}
+{% block headtitle %}tags{% endblock %}
+{% block title %}tags{% endblock %}
 {% block content %}
 <ul>
 {% for tag, articles in tags %}

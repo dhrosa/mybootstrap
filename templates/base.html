@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-{% include "_head.html" %}
+<head>
+	<meta charset="utf-8">
+	<title>{{ SITENAME }} - {% block headtitle %}{% endblock %}</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="{% block headkeywords %}{% endblock %}">
+	<meta name="author" content="{{ AUTHOR }}">
+	{% if FEED_ATOM %}
+	    <link href="{{ SITEURL }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+	{% endif %}
+	{% if FEED_RSS %}
+	    <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+	{% endif %}
+	
+	<link href="{{ SITEURL }}/theme/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ SITEURL }}/theme/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="{{ SITEURL }}/theme/font-awesome.min.css" rel="stylesheet">
+	<link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
+	{% include "analytics.html" %}
+	{% include "disqus.html" %}
+</head>
 <body>
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 <div class="container-fluid">
 	<div class="head">
 		<div class="row-fluid">
-		        <h3 class="muted">{% block title %} {% endblock %}</h3>
+		        <h1 class="muted">{{ SITENAME }} - <small>{% block title %}{% endblock %}</small></h1>
 		</div>
 		<div class="row-fluid">
 			<div class="span2"></div>
