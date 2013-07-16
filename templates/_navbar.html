@@ -12,15 +12,31 @@
 				</ul>
 			</li>			
 			{% endif %}
+            {% if ADD_TAGS_AS_DROPDOWN_ON_MENU %}
+                {% if articles %}
+                    {% for show, search, icon in ADD_TAGS_AS_DROPDOWN_ON_MENU %}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="{{ icon }}"></i> {{ show }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu">
+                            {% for article in (articles_page.object_list if articles_page else articles) %}
+                                {% if search in article.tags %}
+                                    <li role="menuitem"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>       
+                                {% endif %}
+                            {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
 			{% if DISPLAY_CATEGORIES_ON_MENU %} 
-	                <li class="dropdown">
-			 	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-folder-open"></i> Categories <b class="caret"></b></a>
-  				<ul class="dropdown-menu" role="menu">
-				{% for cat, null in categories %}
-					<li role="menuitem"><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-				{% endfor %}
-				</ul>
-			</li>
+	            <li class="dropdown">
+			 	    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-folder-open"></i> Categories <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                    {% for cat, null in categories %}
+                        <li role="menuitem"><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                    {% endfor %}
+                    </ul>
+			    </li>
 			{% endif %}
 			{% if NAVBAR_PAGES %}
 				{% for name, link, icon in NAVBAR_PAGES %}
