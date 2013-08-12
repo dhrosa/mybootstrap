@@ -3,26 +3,22 @@
 {% block headkeywords %}{{ article.tags |join(', ') }}{% endblock %}
 {% block title %}{{ article.title }}{% endblock %}
 {% block content %}
-<div class="well well-small"><h2 class="muted">{{ article.title }}</h2>
-    <div class="well well-small">{% include "metadata.html" %}</div> 
-</div>
-<div class="well well-small">
-  {{ article.content }}
-  {% if article.tags %}
+<div class="span12">
+    <div class="span12 well well-small">{% include "metadata.html" %}</div> 
+    {{ article.content }}
+    {% if article.tags %}
   	<ul class="inline-block text-right">
 		<i class="icon-tags"></i>
 			{% for tag in article.tags %}
-				<il><small><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></small></li>
+				<il><a class="btn btn-mini btn-primary" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
 			{% endfor %}
-  	</p>
-  {% endif %}
-  <hr>
-  <div class="well well-small">
-	{% if DISQUS_SITENAME %}
+  	</ul>
+    {% endif %}
+    <hr>
+    {% if DISQUS_SITENAME %}
 	<h2>Comments</h2>
 	<div id="disqus_thread">
 	</div>
 	{% endif %}
-   </div>
 </div>
 {% endblock %}
