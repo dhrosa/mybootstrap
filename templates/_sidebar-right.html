@@ -1,9 +1,9 @@
-<ul class="unstyled nav nav-list">
-	
-	<li class="nav-header">
+<!-- right sidebar content -->
+<ul class="nav">
+    <li class="nav-header">
 		<h4>Tags</h4>
 	</li>
-    	{% for tag, articels in tags %}
-        	<li class="tag-{{ tag }}"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
-    	{% endfor %}
+    {% for tag, articels in tags %}
+        <li class="tag-{{ tag }} li-tag"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+    {% endfor %}
 </ul>

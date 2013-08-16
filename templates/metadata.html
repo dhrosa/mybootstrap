@@ -1,8 +1,0 @@
-Posted <abbr class="published" title="{{ article.date.isoformat() }}">
-	<i class="icon-calendar"></i> {{ article.locale_date }}
-	</abbr>
-{% if article.author %} 
-	by <i class="icon-user"> <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></i>
-{% endif %}
- in <i class="icon-folder-open"> <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></i> 
-    <i class="icon-comment pull-right"> <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread"></a></i> 

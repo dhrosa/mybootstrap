@@ -1,52 +1,80 @@
-<div class="navbar ">
-	<div class="navbar-inner">
-	        <ul class="nav">
-			<li><a href="{{ SITEURL }}/index.html"><i class="icon-home"></i> Home</a></li>
-			{% if DISPLAY_PAGES_ON_MENU %}
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <b class="caret"></b></a>
-				<ul class="dropdown-menu" role="menu">
-				{% for page in PAGES %}
-					<li role="menuitem"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-				{% endfor %}
-				</ul>
-			</li>			
-			{% endif %}
-            {% if ADD_TAGS_AS_DROPDOWN_ON_MENU %}
-                {% if articles %}
-                    {% for show, search, icon in ADD_TAGS_AS_DROPDOWN_ON_MENU %}
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="{{ icon }}"></i> {{ show }} <b class="caret"></b></a>
-                            <ul class="dropdown-menu" role="menu">
-                            {% for article in (articles_page.object_list if articles_page else articles) %}
-                                {% if search in article.tags %}
-                                    <li role="menuitem"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>       
-                                {% endif %}
-                            {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                {% endif %}
+<div class="navbar-header">
+    <!-- nav button for small devices -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand visible-sm" href="/">{{ SITENAME }}</a>
+</div>
+<div class="navbar-collapse collapse navbar-responsive-collapse"> 
+	<ul class="nav navbar-nav">
+        <li><a href="{{ SITEURL }}/index.html"><i class="icon-home"></i> Home</a></li>
+        {% if DISPLAY_PAGES_ON_MENU %}
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#">Pages <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                {% for page in PAGES %}
+                    <li role="menuitem"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </li>			
+        {% endif %}
+        {% if ADD_TAGS_AS_DROPDOWN_ON_MENU %}
+            {% if articles %}
+                {% for show, search, icon in ADD_TAGS_AS_DROPDOWN_ON_MENU %}
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="{{ icon }}"></i> {{ show }} <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                        {% for article in articles %}
+                            {% if search in article.tags %}
+                                <li role="menuitem"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>       
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
             {% endif %}
-			{% if DISPLAY_CATEGORIES_ON_MENU %} 
-	            <li class="dropdown">
-			 	    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-folder-open"></i> Categories <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu">
-                    {% for cat, null in categories %}
-                        <li role="menuitem"><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-                    {% endfor %}
-                    </ul>
-			    </li>
-			{% endif %}
-			{% if NAVBAR_PAGES %}
-				{% for name, link, icon in NAVBAR_PAGES %}
-					<li><a href="{{ SITEURL }}/{{ link }}"><i class="{{ icon }}"></i> {{ name }}</a></li>
-				{% endfor %}
-			{% endif %}
-	        </ul>   
-		<ul class="nav pull-right">
-			<li><a href="{{ GITHUB_URL }}"><i class="icon-github-alt"></i> GitHub</a></li>
-			<li><a href="{{ SITEURL }}/{{ FEED_ATOM }}"><i class="icon-rss"></i> RSS</a></li>
-		</ul>
-	</div>
+        {% endif %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %} 
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="icon-folder-open"></i> Categories <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                {% for cat, null in categories %}
+                    <li role="menuitem"><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+        {% if NAVBAR_PAGES %}
+            {% for name, link, icon in NAVBAR_PAGES %}
+                <li><a href="{{ SITEURL }}/{{ link }}"><i class="{{ icon }}"></i> {{ name }}</a></li>
+            {% endfor %}
+        {% endif %}
+	</ul>   
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="icon-tags"></i> Tags <span class="badge">{{ tags|length }}</span><b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-menu-tags" role="menu">
+                {% for tag, articels in tags %}
+                    <li role="presentation"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="icon-folder-open"></i> Extras <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+                <li role="presentation" class="dropdown-header">Source</li>
+                <li role="presentation"><a href="{{ GITHUB_URL }}"><i class="icon-github-alt"></i> GitHub</a></li>
+                <li role="presentation"><a href="{{ SITEURL }}/{{ FEED_ATOM }}"><i class="icon-rss"></i> RSS</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation" class="dropdown-header">Blogroll</li>
+                {% if LINKS or SOCIAL %}
+                    {% for name, link in LINKS %}
+                        <li role="presentation"><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+                    {% endfor %} 
+                {% endif %}
+            </ul>
+        </li>
+    </ul>
 </div>

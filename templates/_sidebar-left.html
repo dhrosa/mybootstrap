@@ -1,27 +1,18 @@
+<!-- left sidebar content -->
 {% if LINKS or SOCIAL %}
-<div class="row-fluid">
-	<div class="span12">
-		<div class="sidebar-nav">
-			<ul class="nav nav-list">
-			<li class="nav-header"><h4>Blogroll</h4></li>
-			{% for name, link in LINKS %}
-				<li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
-			{% endfor %} 
-		        </ul>
-		</div>
-	</div>
+<div class="list-group">
+	<p class="list-group-item active">Blogroll</p>
+	{% for name, link in LINKS %}
+		<a class="list-group-item" href="{{ link }}" target="_blank">{{ name }}</a>
+	{% endfor %} 
 </div>
 {% endif %}
 {% if AUTHOR_ABOUT %}
-<div class="row-fluid">
-        <div class="span12">
-		<h4>About me</h4>
-		{% if AUTHOR_IMAGE %}
-			<img src="{{ AUTHOR_PHOTO }}"/>
-		{% endif %} 
-		<div>
-			{{ AUTHOR_ABOUT }}
-		</div>
-	</div>
+<h4>About me</h4>
+{% if AUTHOR_IMAGE %}
+    <img src="{{ AUTHOR_PHOTO }}"/>
+{% endif %} 
+<div>
+	{{ AUTHOR_ABOUT }}
 </div>
 {% endif %}
