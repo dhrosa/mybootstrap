@@ -4,7 +4,7 @@
 {% block content %}
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
-        <div class="col-md-12">
+        <div class="col-md-12 article-buffer">
             <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
             <div class="metahead">
                 <abbr class="published" title="{{ article.date.isoformat() }}"><i class="icon-calendar"></i> {{ article.locale_date }}</abbr>
