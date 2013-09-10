@@ -5,12 +5,12 @@
 {% block content %}
     {{ article.content }}
     {% if article.tags %}
-  	<ul class="inline-block text-right">
+  	<div class="inline-block text-right">
 		<i class="icon-tags"></i>
-			{% for tag in article.tags %}
-				<il><a class="btn btn-xs btn-primary" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
-			{% endfor %}
-  	</ul>
+		{% for tag in article.tags %}
+			<a class="btn btn-xs btn-primary" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+		{% endfor %}
+  	</div>
     {% endif %}
     <hr>
     {% if DISQUS_SITENAME %}
