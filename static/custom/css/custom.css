@@ -1,5 +1,5 @@
-@media (min-width: 768px) { 
-    .container .row { 
+@media (min-width: 768px) {
+    .container .row {
         margin-right: 0px;
         margin-left: 0px;
     }
@@ -24,5 +24,14 @@
 }
 
 .article-buffer {
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
+}
+
+.back-to-top {
+    position: fixed;
+    opacity: 0.6;
+    bottom: 2em;
+    right: 20px;
+    text-decoration: none;
+    display: none;
 }
