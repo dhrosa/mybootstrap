@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block headtitle %}{{ article.title }}{% endblock %}
+{% block headdescription %}{{ article.summary |striptags  }}{% endblock %}
 {% block headkeywords %}{{ article.tags |join(', ') }}{% endblock %}
 {% block title %}{{ article.title }}{% endblock %}
 {% block content %}
