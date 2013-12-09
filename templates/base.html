@@ -44,24 +44,24 @@
 <div class="container">
     <div class="row">
         {% if "left" in SIDEBARS %}
-    		<div class="col-md-2 visible-md visible-lg">
+    		<div class="col-md-2 visible-md visible-lg sidebar-left">
 	    		{% include "_sidebar-left.html" %}
             </div>
         {% endif %}
 
         <!-- limit width if sidebars enabled -->
         {% if "left" in SIDEBARS and "right" in SIDEBARS %}
-		    <div class="col-md-8 col-xs-12 col-sm-12">
+		    <div class="col-md-8 col-xs-12 col-sm-12 main-content">
         {% elif "left" in SIDEBARS or "right" in SIDEBARS %}
-            <div class="col-md-10 col-xs-12 col-sm-12">
+            <div class="col-md-9 col-xs-12 col-sm-12 main-content">
         {% else %}
-            <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="col-md-12 col-xs-12 col-sm-12 main-content">
         {% endif %}
     	        {% block content %}{% endblock %}
             </div>
 
         {% if "right" in SIDEBARS %}
-		    <div class="col-md-2 visible-md visible-lg">
+		    <div class="col-md-3 visible-md visible-lg sidebar-right">
 			    {% include "_sidebar-right.html" %}
 		    </div>
         {% endif %}
@@ -80,6 +80,13 @@
         <a href="http://www.piwik.org" target="_blank">Piwik</a></p>
         <p>&copy; {{ AUTHOR }} 2013</p>
         <p><a href="/pages/impressum.html#optout">Tracking OptOut</a></p>
+        <hr>
+        <form class="center-block" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="encrypted" value="{{ PAYPAL }}">
+            <input type="image" src="https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen  mit PayPal.">
+            <img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+        </form>
     </div>
     <!-- back to top buttons -->
     <a href="#" class="back-to-top"><i class="fa fa-arrow-circle-up fa-4x"></i></a>
@@ -87,8 +94,9 @@
 <!-- javascript load -->
 <script>window.jQuery || document.write('<script src="{{ SITEURL }}/theme/jquery/jquery-latest.min.js" type="text/javascript"><\/script>')</script>
 <script src="{{ SITEURL }}/theme/custom/js/scrolltotop.js" type="text/javascript"></script>
+<script src="{{ SITEURL }}/theme/custom/js/adswitch.js" type="text/javascript"></script>
 <script src="{{ SITEURL }}/theme/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="{{ SITEURL }}/theme/bootstrap/js/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="{{ SITEURL }}/theme/bootstrap/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 {% if USE_SWIPEBOX %}
     <script src="{{ SITEURL }}/theme/swipebox/jquery.swipebox.min.js" type="text/javascript"></script>
     <script type="text/javascript">

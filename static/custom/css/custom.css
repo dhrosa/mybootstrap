@@ -35,3 +35,7 @@
     text-decoration: none;
     display: none;
 }
+
+.hide {
+    display: none;
+}
