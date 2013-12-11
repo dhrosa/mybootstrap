@@ -53,7 +53,7 @@
         {% if "left" in SIDEBARS and "right" in SIDEBARS %}
 		    <div class="col-md-8 col-xs-12 col-sm-12 main-content">
         {% elif "left" in SIDEBARS or "right" in SIDEBARS %}
-            <div class="col-md-9 col-xs-12 col-sm-12 main-content">
+            <div class="col-md-10 col-xs-12 col-sm-12 main-content">
         {% else %}
             <div class="col-md-12 col-xs-12 col-sm-12 main-content">
         {% endif %}
@@ -61,7 +61,7 @@
             </div>
 
         {% if "right" in SIDEBARS %}
-		    <div class="col-md-3 visible-md visible-lg sidebar-right">
+		    <div class="col-md-2 visible-md visible-lg sidebar-right">
 			    {% include "_sidebar-right.html" %}
 		    </div>
         {% endif %}
