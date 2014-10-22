@@ -15,10 +15,10 @@
 	{% endif %}
 
 	<link href="{{ SITEURL }}/theme/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="{{ SITEURL }}/theme/material/css/ripples.min.css" rel="stylesheet">
+	<link href="{{ SITEURL }}/theme/material/css/material-wfont.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/custom/css/custom.css" rel="stylesheet" media="screen">
-	<link href="{{ SITEURL }}/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/theme/syntax/styles/shCore.css" rel="stylesheet" type="text/css" />
-    <link href="{{ SITEURL }}/theme/syntax/styles/shThemeRDark.css" rel="stylesheet" type="text/css" />
+    <link href="{{ SITEURL }}/theme/custom/css/pygments.css" rel="stylesheet" media="screen">
     {% if USE_SWIPEBOX %}
         <link href="{{ SITEURL }}/theme/swipebox/swipebox.css" rel="stylesheet" type="text/css" />
     {% endif %}
@@ -42,24 +42,24 @@
 <div class="container">
     <div class="row">
         {% if "left" in SIDEBARS %}
-    		<div class="col-md-2 visible-md visible-lg sidebar-left">
+    		<div class="col-md-2 visible-md visible-lg">
 	    		{% include "_sidebar-left.html" %}
             </div>
         {% endif %}
 
         <!-- limit width if sidebars enabled -->
         {% if "left" in SIDEBARS and "right" in SIDEBARS %}
-		    <div class="col-md-8 col-xs-12 col-sm-12 main-content">
+		    <div class="col-md-8 col-xs-12 col-sm-12">
         {% elif "left" in SIDEBARS or "right" in SIDEBARS %}
-            <div class="col-md-10 col-xs-12 col-sm-12 main-content">
+            <div class="col-md-10 col-xs-12 col-sm-12">
         {% else %}
-            <div class="col-md-12 col-xs-12 col-sm-12 main-content">
+            <div class="col-md-12 col-xs-12 col-sm-12">
         {% endif %}
     	        {% block content %}{% endblock %}
             </div>
 
         {% if "right" in SIDEBARS %}
-		    <div class="col-md-2 visible-md visible-lg sidebar-right">
+		    <div class="col-md-2 visible-md visible-lg">
 			    {% include "_sidebar-right.html" %}
 		    </div>
         {% endif %}
@@ -73,8 +73,7 @@
     <div class="text-center">
         <p>Powered by <a href="http://blog.getpelican.com/" target="_blank">Pelican</a>,
         <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>,
-        <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a>,
-        <a href="http://glyphicons.com/" target="_blank">Glyphicons</a>
+        <a href="http://http://fezvrasta.github.io/bootstrap-material-design/" target="_blank">Bootstrap-Material-Design</a>,
         {% if PIWIK_URL and PIWIK_SITE_ID %}
             and <a href="http://www.piwik.org" target="_blank">Piwik</a></p>
         {% endif %}
@@ -91,15 +90,14 @@
         </form>
     </div>
     <!-- back to top buttons -->
-    <a href="#" class="back-to-top"><i class="fa fa-arrow-circle-up fa-4x"></i></a>
+    <a href="#" class="btn btn-primary btn-lg back-to-top"><i class="mdi-navigation-expand-less"></i></a>
 </div>
 <!-- javascript load -->
 <script>window.jQuery || document.write('<script src="{{ SITEURL }}/theme/jquery/jquery-latest.min.js" type="text/javascript"><\/script>')</script>
 <script src="{{ SITEURL }}/theme/custom/js/scrolltotop.js" type="text/javascript"></script>
 <script src="{{ SITEURL }}/theme/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="{{ SITEURL }}/theme/bootstrap/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="{{ SITEURL }}/theme/syntax/shCore.js" type="text/javascript"></script>
-<script src="{{ SITEURL }}/theme/syntax/shAutoloader.js" type="text/javascript"></script>
+<script src="{{ SITEURL }}/theme/material/js/ripples.min.js" type="text/javascript"></script>
+<script src="{{ SITEURL }}/theme/material/js/material.min.js" type="text/javascript"></script>
 {% if USE_SWIPEBOX %}
     <script src="{{ SITEURL }}/theme/swipebox/jquery.swipebox.min.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -109,14 +107,10 @@
     </script>
 {% endif %}
 <script>
-    SyntaxHighlighter.autoloader(
-        'shell  {{ SITEURL }}/theme/syntax/shBrushBash.js',
-        'python {{ SITEURL }}/theme/syntax/shBrushPython.js',
-        'js     {{ SITEURL }}/theme/syntax/shBrushJScript.js',
-        'html   {{ SITEURL }}/theme/syntax/shBrushXml.js'
-    );
-    SyntaxHighlighter.vars.discoveredBrushes = null;
-    SyntaxHighlighter.all()
+    jQuery(document).ready(function() {
+        jQuery('[rel="tooltip-right"]').tooltip({ placement:'right' });
+    });
 </script>
+
 </body>
 </html>

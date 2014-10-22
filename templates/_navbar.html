@@ -1,13 +1,12 @@
 <div class="navbar-header">
     <!-- nav button for small devices -->
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-        <span class="fa fa-bars fa-fw"></span>
+        <span class="mdi-navigation-menu"></span>
     </button>
-    <a class="navbar-brand" href="/">{{ SITENAME }}</a>
 </div>
 <div class="collapse navbar-collapse navbar-main-collapse">
 	<ul class="nav navbar-nav">
-        <li><a href="{{ SITEURL }}/index.html"><i class="fa fa-home fa-fw"></i> Home</a></li>
+        <li><a href="{{ SITEURL }}/index.html"><i class="mdi-action-home"></i> Home</a></li>
         {% if DISPLAY_PAGES_ON_MENU %}
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#">Pages <b class="caret"></b></a>
@@ -36,7 +35,7 @@
         {% endif %}
         {% if DISPLAY_CATEGORIES_ON_MENU %}
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="fa fa-book fa-fw"></i> Categories <b class="caret"></b></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="mdi-action-book"></i> Categories <b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu">
                 {% for cat, null in categories %}
                     <li role="menuitem"><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
@@ -52,7 +51,7 @@
 	</ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="fa fa-tags fa-fw"></i> Tags <span class="badge">{{ tags|length }}</span><b class="caret"></b></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="mdi-av-my-library-books"></i> Tags <span class="badge">{{ tags|length }}</span><b class="caret"></b></a>
             <ul class="dropdown-menu dropdown-menu-tags" role="menu">
                 {% for tag, articels in tags %}
                     <li role="presentation"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
@@ -60,11 +59,11 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="fa fa-folder-open fa-fw"></i> Extras <b class="caret"></b></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#"><i class="mdi-notification-folder-special"></i> Extras <b class="caret"></b></a>
             <ul class="dropdown-menu" role="menu">
                 <li role="presentation" class="dropdown-header">Source</li>
-                <li role="presentation"><a href="{{ GITHUB_URL }}"><i class="fa fa-github-alt fa-fw"></i> GitHub</a></li>
-                <li role="presentation"><a href="{{ SITEURL }}/{{ FEED_ATOM }}"><i class="fa fa-rss-square fa-fw"></i> RSS</a></li>
+                <li role="presentation"><a href="{{ GITHUB_URL }}">GitHub</a></li>
+                <li role="presentation"><a href="{{ SITEURL }}/{{ FEED_ATOM }}">RSS</a></li>
                 <li role="presentation" class="divider"></li>
                 <li role="presentation" class="dropdown-header">Blogroll</li>
                 {% if LINKS or SOCIAL %}

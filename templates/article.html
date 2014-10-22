@@ -7,9 +7,9 @@
     {{ article.content }}
     {% if article.tags %}
   	<div class="inline-block text-right">
-		<i class="icon-tags"></i>
+		<i class="mdi-av-my-library-books"></i>
 		{% for tag in article.tags %}
-			<a class="btn btn-xs btn-primary" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+			<a class="label label-primary" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
 		{% endfor %}
   	</div>
     {% endif %}

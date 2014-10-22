@@ -1,30 +1,28 @@
-@media (min-width: 768px) {
-    .container .row {
-        margin-right: 0px;
-        margin-left: 0px;
-    }
+body {
+    font-weight: 400;
 }
 
-.page-header {
-    padding-right: 15px;
-    padding-left: 15px;
+.list-group .list-group-item .row-action-primary {
+    color: inherit;
 }
 
-.btn-xs {
-    font-size: 10px;
+.list-group .list-group-item .row-action-primary .btn {
+    background: rgba(0,0,0,.25);
+    border-radius: 100%;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
 }
 
-.metahead {
-    margin-top: -5px;
-    margin-bottom: 15px;
+.navbar .navbar-nav>li i {
+    font-size: 20px;
+    position: relative;
+    top: 3px;
 }
 
-.metabottom {
-    margin-top: 15px;
-}
-
-.article-buffer {
-    margin-bottom: 40px;
+.badge {
+    color: #428bca;
+    background-color: rgba(255,255,255,.84);
 }
 
 .back-to-top {
@@ -38,4 +36,8 @@
 
 .hide {
     display: none;
+}
+
+.highlight pre {
+    word-wrap: inherit;
 }

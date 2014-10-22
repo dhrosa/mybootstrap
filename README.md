@@ -10,5 +10,5 @@ NAVBAR_PAGES =()
 SIDEBARS = (u'left', u'right')   
 ```
 
-my pelican theme build with bootstrap
+my pelican theme build with [Bootstrap](http://getbootstrap.com) and [Bootstrap-Material-Design](https://github.com/FezVrasta/bootstrap-material-design)
 @ www.the-hawkes.de
