@@ -41,3 +41,7 @@ body {
 .highlight pre {
     word-wrap: inherit;
 }
+
+.strike {
+    text-decoration: line-through;
+}
